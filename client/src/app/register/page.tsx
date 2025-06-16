@@ -9,9 +9,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 import { GraduationCap, BookOpen, User, Mail, Lock, Calendar, MapPin } from 'lucide-react';
-import { toast } from 'sonner';
 import Image from 'next/image';
 import axios from 'axios';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 // Validation schema
 const registrationSchema = Yup.object().shape({
@@ -81,9 +82,13 @@ const RegisterForm = () => {
     address: '',
   };
 
-  const handleSubmit = (values: FormValues, { setSubmitting }: any) => {
-  axios.post('http://localhost:9090/register',values)
-  
+  const router = useRouter()
+
+  const handleSubmit = async (values: FormValues, { setSubmitting }: any) => {
+    
+  const {data}= await axios.post('http://localhost:9090/register',values)
+  toast(data)
+  if(data?.isRegistered) router.push('/login')
   };
 
   return (

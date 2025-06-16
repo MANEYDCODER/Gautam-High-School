@@ -1,5 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button";
+
 import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,14 +10,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-    \
+      {/* Navigation Bar */}
       <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-         \
+            {/* Logo */}
             <div className="flex items-center gap-3">
               <img 
-                src="ghsnobg.png" 
+                src="/ghsnobg.png" 
                 alt="Gautam High School Logo" 
                 className="w-10 h-10 object-contain"
               />
@@ -25,7 +26,8 @@ const Index = () => {
                 <p className="text-xs text-sky-600">Excellence in Education</p>
               </div>
             </div>
-\
+
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <a href="#" className="text-gray-600 hover:text-sky-600 font-medium transition-colors">Home</a>
               <a href="#" className="text-gray-600 hover:text-sky-600 font-medium transition-colors">About</a>
@@ -35,14 +37,16 @@ const Index = () => {
               <a href="#" className="text-gray-600 hover:text-sky-600 font-medium transition-colors">Contact</a>
             </div>
 
-      \
+            {/* CTA Button & Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              <Link href="/register" className="hidden sm:block">
-                <Button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2">
-                  Apply Now
-                </Button>
-              </Link>
-          \
+
+            <Link href="/login">
+                  <Button className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-full">
+                    Login
+                  </Button>
+                </Link>
+
+              {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden p-2 text-gray-600 hover:text-sky-600"
@@ -52,7 +56,7 @@ const Index = () => {
             </div>
           </div>
 
-      \
+          {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="lg:hidden border-t border-sky-100 py-4">
               <div className="flex flex-col space-y-4">
@@ -73,7 +77,7 @@ const Index = () => {
         </div>
       </nav>
 
-   \
+      {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-sky-100 to-sky-200 py-20 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -91,34 +95,39 @@ const Index = () => {
                     Apply Now
                   </Button>
                 </Link>
+                
                 <Button variant="outline" className="border-sky-500 text-sky-600 hover:bg-sky-50 px-8 py-3 rounded-full">
                   Discover More
                 </Button>
               </div>
             </div>
             
-   
+            {/* Floating Elements */}
             <div className="relative">
-              <div className="w-80 h-80 bg-sky-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-white text-6xl font-bold">GHS</span>
+              <div className="w-80 h-80 bg-sky-500 rounded-full flex items-center justify-center mx-auto overflow-hidden animate-[float_3s_ease-in-out_infinite]">
+                <img 
+                  src="/ghsnobg.png" 
+                  alt="Gautam High School Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
-            
-              <div className="absolute top-0 right-0 bg-white p-3 rounded-lg shadow-lg">
+              {/* Floating Cards */}
+              <div className="absolute top-0 right-0 bg-white p-3 rounded-lg shadow-lg animate-[float_2s_ease-in-out_infinite_0.5s]">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-sky-500" />
                   <span className="text-sm font-medium">Excellence</span>
                 </div>
               </div>
               
-              <div className="absolute top-20 left-0 bg-white p-3 rounded-lg shadow-lg">
+              <div className="absolute top-20 left-0 bg-white p-3 rounded-lg shadow-lg animate-[float_2.5s_ease-in-out_infinite_1s]">
                 <div className="flex items-center gap-2">
                   <Heart className="w-5 h-5 text-pink-500" />
                   <span className="text-sm font-medium">Innovation</span>
                 </div>
               </div>
               
-              <div className="absolute bottom-20 right-10 bg-white p-3 rounded-lg shadow-lg">
+              <div className="absolute bottom-20 right-10 bg-white p-3 rounded-lg shadow-lg animate-[float_2.2s_ease-in-out_infinite_1.5s]">
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5 text-yellow-500" />
                   <span className="text-sm font-medium">Success</span>
@@ -129,7 +138,7 @@ const Index = () => {
         </div>
       </div>
 
-      
+      {/* Statistics Section */}
       <div className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -157,7 +166,7 @@ const Index = () => {
         </div>
       </div>
 
-      
+      {/* Why Choose Section */}
       <div className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Choose Gautam High School?</h2>
@@ -201,22 +210,17 @@ const Index = () => {
         </div>
       </div>
 
-     
+      {/* CTA Section */}
       <div className="py-16 px-4 bg-sky-600 text-white text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to Begin Your Journey?</h2>
           <p className="text-xl mb-8 text-sky-100">
             Join thousands of students who have transformed their lives at Gautam High School. Your future starts here.
           </p>
-          <Link href="/register">
-            <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold">
-              Start Application
-            </Button>
-          </Link>
         </div>
       </div>
 
-      
+      {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-4 gap-8">
@@ -260,9 +264,6 @@ const Index = () => {
               <p className="text-gray-400 text-sm mb-4">
                 Subscribe to our newsletter for the latest updates, events, and announcements from our school community.
               </p>
-              <Button className="bg-sky-600 hover:bg-sky-700 text-white w-full">
-                Subscribe
-              </Button>
             </div>
           </div>
           
