@@ -88,7 +88,7 @@ const RegisterForm = () => {
     
   const {data}= await axios.post('http://localhost:9090/register',values)
   toast(data)
-  if(data?.isRegistered) router.push('/login')
+  router.push('/login')
   };
 
   return (
