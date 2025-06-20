@@ -1,4 +1,4 @@
-# 🏫 School Management System (MERN Stack)
+# 🏫 Gautam High School Management System (MERN Stack)
 
 Welcome to the School Management System! This project aims to provide a comprehensive platform for managing school information, facilitating admissions, and engaging with the school community. Built with the MERN stack, it leverages modern web technologies for a robust and scalable solution.
 
@@ -52,7 +52,7 @@ This project is divided into several phases to ensure a structured development p
 **🎯 Goal:** Make your school website publicly accessible with information about your institution.
 
 **✅ Features to Build:**
-* [ ] Home Page: Introduction to the school
+* ✔️ Home Page: Introduction to the school
 * [ ] About Us: History, mission, vision
 * [ ] Photo Album: Gallery of school events
 * [ ] Timeline: Milestones and achievements
