@@ -13,6 +13,8 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { addLoginDetails } from '@/redux/reducerSlices/userSlice';
 
 const registrationSchema = Yup.object().shape({
   email: Yup.string()
@@ -42,12 +44,17 @@ const RegisterForm = () => {
   };
 
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleSubmit = async (values: FormValues, { setSubmitting }: any) => {
     try {
       const { data } = await axios.post('http://localhost:9090/login', values);
       if(data?.isLoggedIn) router.push('/')
       toast(data?.message || 'Login successful!');
+    if (data) {
+      dispatch(addLoginDetails(data))
+    }
+
     } catch (error: any) {
       toast.error(error?.response?.data?.message || 'Something went wrong');
     } finally {

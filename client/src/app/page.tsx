@@ -12,10 +12,18 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { useSelector } from "react-redux";
+
+
+
+
+
+
 
 
 
 const NavBar = () => {
+  
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex space-x-6">
@@ -64,10 +72,12 @@ const NavBar = () => {
 }
 
 const Index = () => {
+  const {email} = useSelector(state=>state.user)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased">
+      {email}
       {/* Navigation Bar */}
       <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
