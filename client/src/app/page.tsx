@@ -1,17 +1,10 @@
 'use client'
+import { NavigationMenuDemo } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 
 import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 import { useSelector } from "react-redux";
 
 
@@ -25,49 +18,11 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
   
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="flex space-x-6">
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-gray-700 hover:text-sky-600 font-medium transition-colors duration-200">About</NavigationMenuTrigger>
-          
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-gray-700 hover:text-sky-600 font-medium transition-colors duration-200">Academics</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Programs</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Curriculum</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Faculty</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-gray-700 hover:text-sky-600 font-medium transition-colors duration-200">Admissions</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">How to Apply</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Tuition & Aid</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Scholarships</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-gray-700 hover:text-sky-600 font-medium transition-colors duration-200">News & Events</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Latest News</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Upcoming Events</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Event Gallery</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-gray-700 hover:text-sky-600 font-medium transition-colors duration-200">Contact</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Get in Touch</NavigationMenuLink>
-            <NavigationMenuLink className="block p-4 text-gray-700 hover:bg-sky-50 transition-colors duration-200">Visit Us</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <div>
+      <NavigationMenuDemo/>
+  
+    </div>
+    
   )
 }
 
@@ -102,11 +57,7 @@ const Index = () => {
 
             {/* CTA Button & Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              <Link href="/login">
-                <Button className="bg-sky-600 hover:bg-sky-700 text-white px-7 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                  Login
-                </Button>
-              </Link>
+              
 
               {/* Mobile menu button */}
               <button

@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import  counterSlice  from './reducerSlices/counterSlice'
 import  boxSlice  from './reducerSlices/boxSlice'
 import  userSlice  from './reducerSlices/userSlice'
-
+import reduxLogger from 'redux-logger'
 
 export default configureStore({
   reducer: {
@@ -10,5 +10,7 @@ export default configureStore({
     user: userSlice,
     box: boxSlice,
     
-  }
+  },
+
+  middleware: ()=> [reduxLogger]
 })
