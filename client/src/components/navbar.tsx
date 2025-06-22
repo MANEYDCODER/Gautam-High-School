@@ -74,9 +74,9 @@ export function NavigationMenuDemo() {
               <ListItem href="/history" title="History">
              A proud legacy of excellence since our founding.
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
+              <ListItem href="/mission" title="Mission">
+               Inspiring minds. Shaping futures.
+             </ListItem> 
               <ListItem href="/docs/primitives/typography" title="Typography">
                 Styles for headings, paragraphs, lists...etc
               </ListItem>

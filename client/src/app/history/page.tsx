@@ -1,9 +1,11 @@
 'use client'
 import { Button } from "@/components/ui/button";
 
-import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X, Link } from "lucide-react";
+import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import Link from "next/link";
+import { NavigationMenuDemo } from "@/components/navbar";
 
 const History = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,15 +78,14 @@ const History = () => {
               </div>
             </div>
 
-        
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center">
+              <NavigationMenuDemo />
+            </div>
 
-            {/* CTA Button & Mobile Menu Toggle */}
+            
             <div className="flex items-center gap-4">
-              <Link href="/register" className="hidden sm:block">
-                <Button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200">
-                  Login
-                </Button>
-              </Link>
+              
 
               {/* Mobile menu button */}
               <button
@@ -106,7 +107,7 @@ const History = () => {
                 <a href="#" className="text-gray-600 hover:text-sky-600 font-medium py-2 px-3 rounded-lg hover:bg-sky-50 transition-colors">Admissions</a>
                 <a href="#" className="text-gray-600 hover:text-sky-600 font-medium py-2 px-3 rounded-lg hover:bg-sky-50 transition-colors">News & Events</a>
                 <a href="#" className="text-gray-600 hover:text-sky-600 font-medium py-2 px-3 rounded-lg hover:bg-sky-50 transition-colors">Contact</a>
-                <Link to="/register" className="pt-2">
+                <Link href="/register" className="pt-2">
                   <Button className="bg-sky-500 hover:bg-sky-600 text-white w-full rounded-full">
                     Apply Now
                   </Button>
