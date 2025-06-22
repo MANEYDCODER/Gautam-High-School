@@ -199,16 +199,23 @@ export function NavigationMenuDemo() {
       </NavigationMenuList>
 
 {isLoggedIn ? (
-                <div>
-                 <Button onClick={handleLogout}> Logout</Button>
-                </div>
-             ):(<div className="ml-auto pl-35 flex items-center">
-  <Link href="/login">
-    <Button className="bg-sky-600 hover:bg-sky-700 text-white px-7 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-      Login
-    </Button>
-  </Link>
-</div>)}
+    <div className="ml-auto pl-35 flex items-center">
+  <Button
+    onClick={handleLogout}
+    className="bg-sky-600 hover:bg-sky-700 text-white px-7 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+  >
+    Logout
+  </Button>
+  </div>
+) : (
+  <div className="ml-auto pl-35 flex items-center">
+    <Link href="/login">
+      <Button className="bg-sky-600 hover:bg-sky-700 text-white px-7 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+        Login
+      </Button>
+    </Link>
+  </div>
+)}
                 
 
       
