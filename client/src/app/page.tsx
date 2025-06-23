@@ -1,10 +1,11 @@
 'use client'
 import { NavigationMenuDemo } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
 
 import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 
@@ -27,6 +28,15 @@ const NavBar = () => {
 }
 
 const Index = () => {
+  const [homeData,setHomeData] = useState([])
+  const fetchHomeData= async () => {
+    const{data} = await axios.get(process.env.NEXT_PUBLIC_API_URL+ '/home-contents')
+  setHomeData(data[0])
+  } 
+  useEffect(()=>{
+    fetchHomeData()
+
+  },[])
   const {email} = useSelector(state=>state.user)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,6 +47,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
+           
             <div className="flex items-center gap-3">
               <img
                 src="/ghsnobg.png"
@@ -45,7 +56,7 @@ const Index = () => {
               />
               <div>
                 <h1 className="text-2xl font-extrabold text-gray-900 leading-tight">Gautam High School</h1>
-                <p className="text-sm text-sky-700 font-medium">Excellence in Education</p>
+                <p className="text-sm text-sky-700 font-medium">{homeData?.motto}</p>
               </div>
             </div>
 
@@ -97,7 +108,7 @@ const Index = () => {
             <div className="space-y-7">
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                 Welcome to <br />
-                <span className="text-sky-600">Gautam High School</span>
+                <span className="text-sky-600">{homeData?.name}</span>
               </h1>
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-lg">
                 Where dreams take flight and futures are built. Join our community of learners, innovators, and leaders shaping tomorrow's world with excellence and innovation.
