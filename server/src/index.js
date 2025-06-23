@@ -3,6 +3,7 @@ import connect from './db/connect.js'
 import cors from 'cors'
 import userRouter from './routes/user.js'
 import dotenv from 'dotenv'
+import homeContentRouter from './routes/homeContent.js'
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ connect()
 app.use(cors())
 app.use(express.json()) 
 app.use(userRouter)
+app.use(homeContentRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
