@@ -86,7 +86,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (values: FormValues, { setSubmitting }: any) => {
     
-  const {data}= await axios.post('http://localhost:9090/register',values)
+  const {data}= await axios.post(process.env.NEXT_PUBLIC_API_URL+ '/register',values)
   toast(data)
   router.push('/login')
   };

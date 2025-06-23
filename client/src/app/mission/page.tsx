@@ -1,8 +1,11 @@
-'use client'
-import { NavigationMenuDemo } from "@/components/navbar";
-import { Button } from "@/components/ui/button";
+
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Lightbulb, Globe, Award, Link } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Heart, Lightbulb, Globe, Award, ArrowLeft } from "lucide-react";
+
+import { NavigationMenuDemo } from "@/components/navbar";
+import Link from "next/link";
 
 const Mission = () => {
   return (
@@ -12,10 +15,10 @@ const Mission = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-900">Excellence Academy</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Gautam High School</h1>
             </div>
             <nav className="hidden md:block">
-              <NavigationMenuDemo/>
+              <NavigationMenuDemo />
             </nav>
           </div>
         </div>
@@ -24,6 +27,17 @@ const Mission = () => {
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
+          <Button
+            asChild
+            variant="outline"
+            className="mb-8 bg-white/80 backdrop-blur-sm border-sky-200 text-sky-700 hover:bg-sky-50 hover:text-sky-800 transition-all duration-200"
+          >
+            <Link href="/" className="inline-flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </Button>
+          
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
             Our Mission
           </h1>
@@ -44,7 +58,7 @@ const Mission = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-lg text-gray-700 leading-relaxed">
-                At Excellence Academy, we are dedicated to providing transformative educational experiences 
+                At Gautam High School, we are dedicated to providing transformative educational experiences 
                 that inspire lifelong learning, foster critical thinking, and prepare students to become 
                 confident, compassionate leaders in an ever-changing world. We believe in nurturing each 
                 student's unique potential while building strong foundations for academic excellence and 
@@ -149,73 +163,9 @@ const Mission = () => {
           </Card>
         </div>
       </section>
-{/* Footer */}
-<footer className="bg-gray-900 text-white py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="/ghsnobg.png" 
-                    alt="Gautam High School Logo"
-                    className="w-8 h-8 object-contain"
-                  />
-                </div>
-                <span className="text-xl font-bold">Gautam High School</span>
-              </div>
-              <p className="text-sky-400 font-medium mb-4">
-                Shaping the Future of Education
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Empowering young minds since 1975. We are committed to providing world-class education that nurtures creativity, critical thinking, and character development for future leaders.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Quick Links</h3>
-              <ul className="space-y-3 text-gray-400 text-sm">
-                <li><Link href="/" className="hover:text-white transition-colors hover:underline">Home</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Academics</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Admissions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">Faculty</a></li>
-                <li><a href="#" className="hover:text-white transition-colors hover:underline">News & Events</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Contact Us</h3>
-              <div className="space-y-3 text-gray-400 text-sm">
-                <p className="flex items-center gap-2">
-                  <span className="text-sky-400">📞</span> 01-5354504
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="text-sky-400">✉️</span> school.gautam@gmail.com
-                </p>
-                <p className="flex items-start gap-2">
-                  <span className="text-sky-400 mt-1">📍</span> 
-                  <span>Ganabaha Marg,<br />Kathmandu 44600</span>
-                </p>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Stay Updated</h3>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                Subscribe to our newsletter for the latest updates, events, and announcements from our school community.
-              </p>
-              <Button className="bg-sky-600 hover:bg-sky-700 text-white w-full rounded-full transition-all duration-200">
-                Subscribe Newsletter
-              </Button>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
-            <p>© 2024 Gautam High School. Made with ❤️ for education.</p>
-          </div>
-        </div>
-      </footer>
+
+      {/* Footer */}
+  
     </div>
   );
 };

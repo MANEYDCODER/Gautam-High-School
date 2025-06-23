@@ -48,7 +48,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (values: FormValues, { setSubmitting }: any) => {
     try {
-      const { data } = await axios.post('http://localhost:9090/login', values);
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_API_URL+ '/login', values);
       if(data?.isLoggedIn) router.push('/')
       toast(data?.message || 'Login successful!');
     if (data) {
