@@ -49,7 +49,7 @@ This project is divided into several phases to ensure a structured development p
 
 ### 🔹 Phase 2: Public School Website (🏗️ Next Step)
 
-**🎯 Goal:** Make your school website publicly accessible with information about your institution.
+**🎯 Goal:** Make my school website publicly accessible with information about your institution.
 
 **✅ Features to Build:**
 * ✔️ Home Page: Introduction to the school
