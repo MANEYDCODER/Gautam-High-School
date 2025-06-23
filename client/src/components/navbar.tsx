@@ -77,8 +77,8 @@ export function NavigationMenuDemo() {
               <ListItem href="/mission" title="Mission">
                Inspiring minds. Shaping futures.
              </ListItem> 
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/vision" title="Vision">
+                A future where every student thrives and leads.
               </ListItem>
               
             </ul>

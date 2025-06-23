@@ -165,6 +165,64 @@ const Mission = () => {
       </section>
 
       {/* Footer */}
+
+      <footer className="bg-gray-900 text-white py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center shadow-md">
+                  <img src="ghsnobg.png" alt="Gautam High School Logo" className="w-9 h-9 object-contain" />
+                </div>
+                <span className="text-2xl font-bold text-sky-50">Gautam High School</span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                Shaping the Future of Education
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Empowering young minds since 1975. We are committed to providing world-class education that nurtures creativity, critical thinking, and character development for future leaders.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-5 text-sky-200">Quick Links</h3>
+              <ul className="space-y-3 text-gray-400 text-base">
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">About Us</a></li>
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Academics</a></li>
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Admissions</a></li>
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Faculty</a></li>
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">News & Events</a></li>
+                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-5 text-sky-200">Contact Us</h3>
+              <div className="space-y-3 text-gray-400 text-base">
+                <p>Phone: <a href="tel:01-5354504" className="hover:text-sky-300 transition-colors duration-200">01-5354504</a></p>
+                <p>Email: <a href="mailto:school.gautam@gmail.com" className="hover:text-sky-300 transition-colors duration-200">school.gautam@gmail.com</a></p>
+                <p>Address: Ganabaha Marg, Kathmandu 44600</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-5 text-sky-200">Stay Updated</h3>
+              <p className="text-gray-400 text-base mb-6">
+                Subscribe to our newsletter for the latest updates, events, and announcements from our school community.
+              </p>
+              <form className="flex">
+               
+                
+              </form>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm">
+            <p>© {new Date().getFullYear()} Gautam High School. Made with ❤️ for education.</p>
+            <p className="mt-2">All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
   
     </div>
   );

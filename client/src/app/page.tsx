@@ -32,7 +32,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased">
-      {email}
       {/* Navigation Bar */}
       <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
