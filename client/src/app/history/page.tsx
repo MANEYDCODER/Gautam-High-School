@@ -2,60 +2,72 @@
 import { Button } from "@/components/ui/button";
 
 import { Users, GraduationCap, Award, TrendingUp, BookOpen, Heart, Lightbulb, Globe, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { NavigationMenuDemo } from "@/components/navbar";
+import axios from "axios";
 
 const History = () => {
+  const [historyData,setHistoryData] = useState()
+  const fetchHistoryData = async ()=> {
+  const {data} = await axios.get(process.env.NEXT_PUBLIC_API_URL+ '/history-contents')
+  setHistoryData(data[0])
+  }
+  useEffect(()=>{
+    fetchHistoryData()
+
+  },[])
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const milestones = [
+    
     {
-      year: "1975",
-      title: "Foundation",
-      description: "Gautam High School was established with a vision to provide quality education to the community.",
+      year: historyData?.milestones?.[0]?.year,
+      title: historyData?.milestones?.[0]?.title,
+      description: historyData?.milestones?.[0]?.description,
       icon: BookOpen,
       color: "sky"
     },
     {
-      year: "1980",
-      title: "First Graduation",
-      description: "Our first batch of students graduated, marking the beginning of our legacy of excellence.",
+      year: historyData?.milestones?.[1]?.year,
+      title: historyData?.milestones?.[1]?.title,
+      description: historyData?.milestones?.[1]?.description,
       icon: GraduationCap,
       color: "blue"
     },
     {
-      year: "1990",
-      title: "Expansion",
-      description: "Added new facilities including science laboratories and a well-equipped library.",
+      year: historyData?.milestones?.[2]?.year,
+      title: historyData?.milestones?.[2]?.title,
+      description: historyData?.milestones?.[2]?.description,
       icon: Lightbulb,
       color: "yellow"
     },
     {
-      year: "2000",
-      title: "Recognition",
-      description: "Received national recognition for academic excellence and innovation in education.",
+      year: historyData?.milestones?.[3]?.year,
+      title: historyData?.milestones?.[3]?.title,
+      description: historyData?.milestones?.[3]?.description,
       icon: Award,
       color: "green"
     },
     {
-      year: "2010",
-      title: "Digital Era",
-      description: "Embraced technology with computer labs and digital learning resources.",
+      year: historyData?.milestones?.[4]?.year,
+      title: historyData?.milestones?.[4]?.title,
+      description: historyData?.milestones?.[4]?.description,
       icon: Globe,
       color: "purple"
     },
     {
-      year: "2020",
-      title: "Modern Learning",
-      description: "Adapted to modern education with online learning platforms and hybrid teaching methods.",
+      year: historyData?.milestones?.[5]?.year,
+      title: historyData?.milestones?.[5]?.title,
+      description: historyData?.milestones?.[5]?.description,
       icon: TrendingUp,
       color: "pink"
     }
   ];
 
   return (
+    
     <div className="min-h-screen bg-white">
       {/* Navigation Bar */}
       <nav className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-sky-100 sticky top-0 z-50">
@@ -64,6 +76,7 @@ const History = () => {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <div className="relative">
+               
                 <img 
                   src="/ghsnobg.png" 
                   alt="Gautam High School Logo" 
@@ -131,17 +144,17 @@ const History = () => {
             <div className="space-y-4">
               <div className="inline-block">
                 <span className="bg-sky-100 text-sky-600 px-4 py-2 rounded-full text-sm font-medium">
-                  📚 Our Legacy
+                  {historyData?.title}
                 </span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
-                Our Rich <br />
+                {historyData?.legacyTitle} <br />
                 <span className="text-sky-600 bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
-                  History
+                  {historyData?.legacySubTitle}
                 </span>
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                For nearly five decades, Gautam High School has been shaping minds, building character, and creating leaders. Discover our journey of excellence, innovation, and unwavering commitment to education.
+                {historyData?.legacyDescription}
               </p>
             </div>
           </div>
@@ -152,9 +165,9 @@ const History = () => {
       <div className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Journey Through Time</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">{historyData?.journeyTitle}</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-              From humble beginnings to becoming a premier educational institution, every milestone tells a story of dedication, growth, and achievement.
+              {historyData?.journeyDescription}
             </p>
           </div>
 
@@ -195,9 +208,9 @@ const History = () => {
       <div className="py-20 px-4 bg-gradient-to-br from-gray-50 to-sky-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Lasting Impact</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">{historyData?.impactTitle}</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-              The true measure of our success lies in the achievements of our graduates and the positive impact they've made in their communities and beyond.
+              {historyData?.impactDescription}
             </p>
           </div>
 
@@ -206,10 +219,10 @@ const History = () => {
               <div className="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
                 <Users className="w-8 h-8 text-sky-500" />
               </div>
-              <div className="text-4xl font-bold text-sky-500 mb-2">10,000+</div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Alumni Network</h3>
+              <div className="text-4xl font-bold text-sky-500 mb-2">{historyData?.impactStats?.[0]?.value}</div>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">{historyData?.impactStats?.[0]?.label}</h3>
               <p className="text-gray-600 leading-relaxed">
-                A global network of successful professionals, entrepreneurs, and leaders making a difference worldwide.
+                {historyData?.impactStats?.[0]?.description}
               </p>
             </div>
 
@@ -217,10 +230,10 @@ const History = () => {
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
                 <Award className="w-8 h-8 text-green-500" />
               </div>
-              <div className="text-4xl font-bold text-green-500 mb-2">500+</div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Awards & Recognition</h3>
+              <div className="text-4xl font-bold text-green-500 mb-2">{historyData?.impactStats?.[1]?.value}</div>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">{historyData?.impactStats?.[1]?.label}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Numerous accolades for academic excellence, innovation, and contribution to educational development.
+                {historyData?.impactStats?.[1]?.description}
               </p>
             </div>
 
@@ -228,10 +241,10 @@ const History = () => {
               <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
                 <Heart className="w-8 h-8 text-pink-500" />
               </div>
-              <div className="text-4xl font-bold text-pink-500 mb-2">50</div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Years of Service</h3>
+              <div className="text-4xl font-bold text-pink-500 mb-2">{historyData?.impactStats?.[2]?.value}</div>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">Y{historyData?.impactStats?.[2]?.label}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Nearly five decades of unwavering commitment to educational excellence and community development.
+                {historyData?.impactStats?.[2]?.description}
               </p>
             </div>
           </div>
@@ -245,19 +258,19 @@ const History = () => {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-4xl mx-auto relative">
-          <h2 className="text-4xl font-bold mb-6">Be Part of Our Continuing Story</h2>
+          <h2 className="text-4xl font-bold mb-6">{historyData?.callToActionTitle}</h2>
           <p className="text-xl mb-10 text-sky-100 leading-relaxed max-w-3xl mx-auto">
-            Join a legacy of excellence that spans generations. Your journey with us will be the next chapter in our rich history of educational achievement and personal growth.
+            {historyData?.callToActionDescription}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                Join Our Legacy
+                {historyData?.joinLegacyButtonTeext}
               </Button>
             </Link>
             <Link href="/">
               <Button variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                Back to Home
+                {historyData?.backToHomeButtonText}
               </Button>
             </Link>
           </div>
