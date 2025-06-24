@@ -1,11 +1,14 @@
 import mongoose from 'mongoose';
 
 const historyContentSchema = new mongoose.Schema({
+
+  title: String,
   legacyTitle: {
     type: String,
     required: true,
     trim: true,
   },
+  legacySubTitle:String,
   legacyDescription: {
     type: String,
     required: true,
@@ -22,24 +25,7 @@ const historyContentSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  milestones: [
-    {
-      year: {
-        type: Number,
-        required: true,
-      },
-      title: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      description: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-  ],
+  milestones: [],
 
   impactTitle: {
     type: String,
@@ -51,20 +37,7 @@ const historyContentSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  impactStats: [
-    {
-      value: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      label: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-  ],
+  impactStats: [],
 
   callToActionTitle: {
     type: String,
