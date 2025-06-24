@@ -56,7 +56,7 @@ const Index = () => {
               />
               <div>
                 <h1 className="text-2xl font-extrabold text-gray-900 leading-tight">Gautam High School</h1>
-                <p className="text-sm text-sky-700 font-medium">{homeData?.motto}</p>
+                <p className="text-sm text-sky-700 font-medium">Excellence in Education</p>
               </div>
             </div>
 
@@ -107,11 +107,11 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-7">
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                Welcome to <br />
+                {homeData?.headerTitle} <br />
                 <span className="text-sky-600">{homeData?.name}</span>
               </h1>
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-lg">
-                Where dreams take flight and futures are built. Join our community of learners, innovators, and leaders shaping tomorrow's world with excellence and innovation.
+                {homeData?.headerDescription}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Link href="/register">
@@ -138,21 +138,21 @@ const Index = () => {
               <div className="absolute top-10 right-0 lg:right-10 bg-white p-4 rounded-xl shadow-xl animate-[float_2s_ease-in-out_infinite_0.5s] transform transition-transform duration-300 hover:scale-105">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-6 h-6 text-sky-500" />
-                  <span className="text-base font-semibold text-gray-800">Excellence</span>
+                  <span className="text-base font-semibold text-gray-800">{homeData?.coreValues?.[1]?.title}</span>
                 </div>
               </div>
 
               <div className="absolute top-20 left-0 lg:left-10 bg-white p-4 rounded-xl shadow-xl animate-[float_2.5s_ease-in-out_infinite_1s] transform transition-transform duration-300 hover:scale-105">
                 <div className="flex items-center gap-2">
                   <Heart className="w-6 h-6 text-pink-500" />
-                  <span className="text-base font-semibold text-gray-800">Innovation</span>
+                  <span className="text-base font-semibold text-gray-800">{homeData?.coreValues?.[0]?.title}</span>
                 </div>
               </div>
 
               <div className="absolute bottom-10 right-0 lg:right-20 bg-white p-4 rounded-xl shadow-xl animate-[float_2.2s_ease-in-out_infinite_1.5s] transform transition-transform duration-300 hover:scale-105">
                 <div className="flex items-center gap-2">
                   <Award className="w-6 h-6 text-yellow-500" />
-                  <span className="text-base font-semibold text-gray-800">Success</span>
+                  <span className="text-base font-semibold text-gray-800">{homeData?.coreValues?.[2]?.title}</span>
                 </div>
               </div>
             </div>
@@ -166,23 +166,23 @@ const Index = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
             <div className="space-y-3 p-4 bg-sky-50 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
               <Users className="w-14 h-14 text-sky-600 mx-auto" />
-              <div className="text-5xl font-extrabold text-sky-600">1000+</div>
-              <div className="text-gray-700 text-lg font-medium">Happy Students</div>
+              <div className="text-5xl font-extrabold text-sky-600">{homeData?.schoolStats?.[0]?.value}</div>
+              <div className="text-gray-700 text-lg font-medium">{homeData?.schoolStats?.[0]?.label}</div>
             </div>
             <div className="space-y-3 p-4 bg-sky-50 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
               <GraduationCap className="w-14 h-14 text-sky-600 mx-auto" />
-              <div className="text-5xl font-extrabold text-sky-600">50+</div>
-              <div className="text-gray-700 text-lg font-medium">Expert Teachers</div>
+              <div className="text-5xl font-extrabold text-sky-600">{homeData?.schoolStats?.[1]?.value}</div>
+              <div className="text-gray-700 text-lg font-medium">{homeData?.schoolStats?.[1]?.label}</div>
             </div>
             <div className="space-y-3 p-4 bg-sky-50 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
               <Award className="w-14 h-14 text-sky-600 mx-auto" />
-              <div className="text-5xl font-extrabold text-sky-600">25+</div>
-              <div className="text-gray-700 text-lg font-medium">Years of Excellence</div>
+              <div className="text-5xl font-extrabold text-sky-600">{homeData?.schoolStats?.[2]?.value}</div>
+              <div className="text-gray-700 text-lg font-medium">{homeData?.schoolStats?.[2]?.label}</div>
             </div>
             <div className="space-y-3 p-4 bg-sky-50 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
               <TrendingUp className="w-14 h-14 text-sky-600 mx-auto" />
-              <div className="text-5xl font-extrabold text-sky-600">95%</div>
-              <div className="text-gray-700 text-lg font-medium">Success Rate</div>
+              <div className="text-5xl font-extrabold text-sky-600">{homeData?.schoolStats?.[3]?.value}</div>
+              <div className="text-gray-700 text-lg font-medium">{homeData?.schoolStats?.[3]?.label}</div>
             </div>
           </div>
         </div>
@@ -191,41 +191,41 @@ const Index = () => {
       {/* Why Choose Section */}
       <div className="py-20 px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Why Choose Gautam High School?</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">{homeData?.whyChooseUsTitle}</h2>
           <p className="text-gray-700 text-lg mb-14 max-w-3xl mx-auto">
-            Discover what makes us the premier choice for your child's education and future success. We are dedicated to fostering holistic growth in a supportive and stimulating environment.
+            {homeData?.whyChooseUsDescription}
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <BookOpen className="w-14 h-14 text-sky-600 mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">Academic Excellence</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">{homeData?.whyChooseUs?.[0]?.title}</h3>
               <p className="text-gray-600 text-base">
-                World-class curriculum designed to nurture brilliant minds and foster intellectual growth. We empower students to achieve their full academic potential.
+               {homeData?.whyChooseUs?.[0]?.description}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <Heart className="w-14 h-14 text-pink-500 mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">Character Building</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">{homeData?.whyChooseUs?.[1]?.title}</h3>
               <p className="text-gray-600 text-base">
-                Developing integrity, leadership, and values that shape tomorrow's responsible and compassionate leaders. Our focus is on holistic development.
+               {homeData?.whyChooseUs?.[1]?.description}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <Lightbulb className="w-14 h-14 text-yellow-500 mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">Innovation Hub</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">{homeData?.whyChooseUs?.[2]?.title}</h3>
               <p className="text-gray-600 text-base">
-                State-of-the-art facilities encouraging creativity, critical thinking, and technological advancement. We prepare students for the challenges of the future.
+                {homeData?.whyChooseUs?.[2]?.description}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <Globe className="w-14 h-14 text-green-500 mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">Global Community</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">{homeData?.whyChooseUs?.[3]?.title}</h3>
               <p className="text-gray-600 text-base">
-                A diverse, inclusive environment preparing students for a connected world. We celebrate cultural diversity and foster global citizenship.
+                {homeData?.whyChooseUs?.[2]?.description}
               </p>
             </div>
           </div>
@@ -235,9 +235,9 @@ const Index = () => {
       {/* CTA Section */}
       <div className="py-20 px-6 lg:px-8 bg-sky-700 text-white text-center">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-5">Ready to Begin Your Journey?</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-5">{homeData?.readyToBeginTitle}</h2>
           <p className="text-xl md:text-2xl mb-10 text-sky-100 leading-relaxed">
-            Join thousands of students who have transformed their lives at Gautam High School. Your future starts here with a foundation of excellence and innovation.
+           {homeData?.readyToBeginDescription}
           </p>
         </div>
       </div>
