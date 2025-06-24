@@ -265,7 +265,7 @@ const History = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                {historyData?.joinLegacyButtonTeext}
+                {historyData?.joinLegacyButtonText}
               </Button>
             </Link>
             <Link href="/">

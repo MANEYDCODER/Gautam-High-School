@@ -18,7 +18,7 @@ const Mission = () => {
               <h1 className="text-2xl font-bold text-gray-900">Gautam High School</h1>
             </div>
             <nav className="hidden md:block">
-              <NavigationMenuDemo />
+              <NavigationMenuDemo /> 
             </nav>
           </div>
         </div>
@@ -27,22 +27,13 @@ const Mission = () => {
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <Button
-            asChild
-            variant="outline"
-            className="mb-8 bg-white/80 backdrop-blur-sm border-sky-200 text-sky-700 hover:bg-sky-50 hover:text-sky-800 transition-all duration-200"
-          >
-            <Link href="/" className="inline-flex items-center gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Link>
-          </Button>
+          
           
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
             Our Mission
           </h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in">
-            Empowering minds, transforming lives, and building a brighter future for all learners
+            At Gautam High School, we aim to go beyond academics by nurturing curiosity, character, and compassion in every student. We believe in an education that inspires lifelong learning, celebrates individuality, and prepares young minds to thrive in a diverse and ever-changing world. Through innovation, inclusivity, and strong values, we guide students to become confident, thoughtful leaders of tomorrow.
           </p>
         </div>
       </section>
@@ -66,8 +57,22 @@ const Mission = () => {
               </p>
             </CardContent>
           </Card>
+          
         </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/register">
+              <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                Join Our Legacy
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                Back To Home
+              </Button>
+            </Link>
+          </div>
       </section>
+      
 
       {/* Core Values */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
