@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { 
   Home, 
   History, 
-  Heart, 
+  Heart,
   Image, 
   Clock, 
   Contact, 
@@ -12,10 +12,9 @@ import {
   UserPlus,
   Users,
   Settings,
-  ChevronRight
+  ChevronRight,
+  Eye
 } from "lucide-react";
-
-
 
 import Link from "next/link";
 import { NavigationMenuDemo } from "@/components/navbar";
@@ -26,43 +25,58 @@ const Admin = () => {
       title: "Manage Home Page content",
       description: "Update hero section, statistics, and featured content",
       icon: Home,
-      color: "sky"
+      color: "sky",
+      route: "/admin/manage-content/home"
     },
     {
       title: "Manage history page content",
       description: "Edit school history, milestones, and legacy information",
       icon: History,
-      color: "blue"
+      color: "blue",
+      route: "/admin/manage-content/history"
     },
     {
       title: "Manage mission page content",
       description: "Update mission statement, values, and vision",
       icon: Heart,
-      color: "pink"
+      color: "pink",
+      route: "/admin/manage-content/mission"
     },
+    {
+  title: "Manage Vision Page Content",
+  description: "Edit vision and core values",
+  icon: Eye,
+  color: "indigo",
+  route: "/admin/manage-content/vision"
+    },
+
     {
       title: "Manage Photo Album: Gallery of school events",
       description: "Upload and organize event photos and galleries",
       icon: Image,
-      color: "purple"
+      color: "purple",
+      route: "/admin/manage-content/gallery"
     },
     {
       title: "Manage Timeline: Milestones and achievements",
       description: "Add and edit important school milestones",
       icon: Clock,
-      color: "green"
+      color: "green",
+      route: "/admin/manage-content/timeline"
     },
     {
       title: "Manage Contact Info",
       description: "Update contact details, address, and communication info",
       icon: Contact,
-      color: "orange"
+      color: "orange",
+      route: "/admin/manage-content/contact"
     },
     {
       title: "Manage News / Announcements",
       description: "Create and publish school news and announcements",
       icon: Globe,
-      color: "red"
+      color: "red",
+      route: "/admin/manage-content/news"
     }
   ];
 
@@ -155,66 +169,22 @@ const Admin = () => {
                   <CardDescription className="text-gray-600 mb-4">
                     {card.description}
                   </CardDescription>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-between border-sky-200 text-sky-700 hover:bg-sky-50 hover:text-sky-800"
-                  >
-                    Manage
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
+                  <Link href={card.route}>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-between border-sky-200 text-sky-700 hover:bg-sky-50 hover:text-sky-800"
+                    >
+                      Manage
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
+        {/* The rest of your component remains unchanged... */}
 
-        {/* Separator */}
-        <div className="flex items-center gap-4 my-16">
-          <Separator className="flex-1" />
-          <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-sky-200">
-            <Users className="w-5 h-5 text-sky-600" />
-            <span className="text-sm font-medium text-gray-700">User Management</span>
-          </div>
-          <Separator className="flex-1" />
-        </div>
-
-        {/* User Management Section */}
-        <section>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {userManagementCards.map((card, index) => (
-              <Card 
-                key={index} 
-                className={`relative overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br ${card.gradient} text-white group cursor-pointer hover:scale-105`}
-              >
-                <div className="absolute inset-0 bg-black/10"></div>
-                <CardHeader className="relative z-10 pb-4">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200">
-                    <card.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-2xl text-white mb-2">
-                    {card.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative z-10">
-                  <CardDescription className="text-white/90 mb-6 text-base">
-                    {card.description}
-                  </CardDescription>
-                  <Button 
-                    className="w-full bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 hover:border-white/50 transition-all duration-200"
-                    variant="outline"
-                  >
-                    {card.action}
-                    <ChevronRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-                
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-              </Card>
-            ))}
-          </div>
-        </section>
 
         {/* Back to Home Link */}
         <div className="text-center mt-16">

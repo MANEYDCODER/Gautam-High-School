@@ -1,13 +1,24 @@
 
-
+'use client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Lightbulb, Globe, Award, ArrowLeft } from "lucide-react";
 
 import { NavigationMenuDemo } from "@/components/navbar";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Mission = () => {
+  const [missionData,setMissionData] = useState()
+  const fetchMissionData = async ()=> {
+  const {data} = await axios.get(process.env.NEXT_PUBLIC_API_URL+ '/mission-contents')
+  setMissionData(data[0])
+  }
+  useEffect(()=>{
+    fetchMissionData()
+
+  },[])
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100">
       {/* Header */}
@@ -30,10 +41,10 @@ const Mission = () => {
           
           
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-            Our Mission
+            {missionData?.mainMissionTitle}
           </h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in">
-            At Gautam High School, we aim to go beyond academics by nurturing curiosity, character, and compassion in every student. We believe in an education that inspires lifelong learning, celebrates individuality, and prepares young minds to thrive in a diverse and ever-changing world. Through innovation, inclusivity, and strong values, we guide students to become confident, thoughtful leaders of tomorrow.
+           {missionData?.mainMissionDescription}
           </p>
         </div>
       </section>
@@ -44,16 +55,12 @@ const Mission = () => {
           <Card className="mb-12 animate-fade-in">
             <CardHeader>
               <CardTitle className="text-3xl text-center text-sky-800">
-                Our Core Mission
+                {missionData?.coreMissionTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-lg text-gray-700 leading-relaxed">
-                At Gautam High School, we are dedicated to providing transformative educational experiences 
-                that inspire lifelong learning, foster critical thinking, and prepare students to become 
-                confident, compassionate leaders in an ever-changing world. We believe in nurturing each 
-                student's unique potential while building strong foundations for academic excellence and 
-                personal growth.
+               {missionData?.coreMissionDescription}
               </p>
             </CardContent>
           </Card>
@@ -78,7 +85,7 @@ const Mission = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Our Core Values
+            {missionData?.coreValuesTitle}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="text-center hover-scale animate-fade-in">
@@ -86,12 +93,11 @@ const Mission = () => {
                 <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
                   <Heart className="w-8 h-8 text-sky-600" />
                 </div>
-                <CardTitle className="text-sky-800">Compassion</CardTitle>
+                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[0]?.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  We foster empathy, kindness, and understanding in all our interactions, 
-                  creating a supportive community where everyone feels valued.
+                  {missionData?.missionPageCoreValues?.[0]?.description}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -101,12 +107,11 @@ const Mission = () => {
                 <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
                   <Lightbulb className="w-8 h-8 text-sky-600" />
                 </div>
-                <CardTitle className="text-sky-800">Innovation</CardTitle>
+                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[1]?.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  We embrace creativity, critical thinking, and new approaches to learning 
-                  that prepare students for the challenges of tomorrow.
+                  {missionData?.missionPageCoreValues?.[1]?.description}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -116,12 +121,11 @@ const Mission = () => {
                 <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
                   <Globe className="w-8 h-8 text-sky-600" />
                 </div>
-                <CardTitle className="text-sky-800">Global Citizenship</CardTitle>
+                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[2]?.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  We cultivate awareness of global issues and encourage students to become 
-                  responsible citizens who contribute positively to society.
+                  {missionData?.missionPageCoreValues?.[2]?.description}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -131,12 +135,11 @@ const Mission = () => {
                 <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
                   <Award className="w-8 h-8 text-sky-600" />
                 </div>
-                <CardTitle className="text-sky-800">Excellence</CardTitle>
+                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[3]?.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  We strive for the highest standards in education, encouraging students 
-                  to reach their full potential in all areas of learning and development.
+                  {missionData?.missionPageCoreValues?.[3]?.description}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -150,19 +153,15 @@ const Mission = () => {
           <Card className="animate-fade-in">
             <CardHeader>
               <CardTitle className="text-3xl text-center text-sky-800">
-                Our Vision for the Future
+                {missionData?.visionTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                We envision a world where every student has access to exceptional education that 
-                ignites their passion for learning and equips them with the skills, knowledge, 
-                and character needed to make a meaningful impact in their communities and beyond.
+                {missionData?.visionDescription}
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Through our commitment to academic excellence, innovative teaching methods, and 
-                holistic development, we aim to be the leading institution that transforms lives 
-                and shapes the leaders of tomorrow.
+                {missionData?.visionCoreDescription}
               </p>
             </CardContent>
           </Card>
