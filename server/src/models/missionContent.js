@@ -40,11 +40,13 @@ const missionContentSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  visionCoreDescription: String,
 
   joinLegacyButtonText: {
     type: String,
     default: "Join Our Legacy",
     trim: true,
+  
   },
   backToHomeButtonText: {
     type: String,
