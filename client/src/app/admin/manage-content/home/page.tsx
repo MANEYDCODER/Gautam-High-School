@@ -5,15 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Home, Save, Plus, Trash2 } from "lucide-react";
+import { Home, Save } from "lucide-react";
 import { useState, useEffect } from "react";
-// import { useToast } from "@/hooks/use-toast";
-
-import {toast} from "sonner"
+import { toast } from "sonner";
 import AdminContentLayout from "@/components/ui/AdminContentLayout";
 
 const ManageHome = () => {
-
   const [loading, setLoading] = useState(false);
   const [homeData, setHomeData] = useState({
     headerTitle: "",
@@ -52,10 +49,8 @@ const ManageHome = () => {
       }
     } catch (error) {
       console.error('Error fetching home data:', error);
-      toast({
-        title: "Error",
+      toast("Error", {
         description: "Failed to fetch home page data",
-        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -74,8 +69,7 @@ const ManageHome = () => {
       });
 
       if (response.ok) {
-        toast({
-          title: "Success",
+        toast("Success", {
           description: "Home page content updated successfully",
         });
       } else {
@@ -83,10 +77,8 @@ const ManageHome = () => {
       }
     } catch (error) {
       console.error('Error saving home data:', error);
-      toast({
-        title: "Error",
+      toast("Error", {
         description: "Failed to update home page content",
-        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -96,7 +88,7 @@ const ManageHome = () => {
   const updateNestedField = (section, index, field, value) => {
     setHomeData(prev => ({
       ...prev,
-      [section]: prev[section].map((item, i) => 
+      [section]: prev[section].map((item, i) =>
         i === index ? { ...item, [field]: value } : item
       )
     }));
@@ -140,8 +132,8 @@ const ManageHome = () => {
               <p className="text-gray-600">Update content for the main homepage</p>
             </div>
           </div>
-          <Button 
-            onClick={handleSave} 
+          <Button
+            onClick={handleSave}
             disabled={loading}
             className="bg-sky-600 hover:bg-sky-700"
           >
@@ -359,8 +351,8 @@ const ManageHome = () => {
 
         {/* Save Button */}
         <div className="flex justify-end">
-          <Button 
-            onClick={handleSave} 
+          <Button
+            onClick={handleSave}
             disabled={loading}
             size="lg"
             className="bg-sky-600 hover:bg-sky-700"
