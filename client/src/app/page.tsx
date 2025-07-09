@@ -62,7 +62,7 @@ const Index = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <NavBar />
+              <NavigationMenuDemo/>
             </div>
 
             {/* CTA Button & Mobile Menu Toggle */}

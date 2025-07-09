@@ -68,26 +68,22 @@ const History = () => {
 
   return (
     
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans antialiased">
       {/* Navigation Bar */}
-      <nav className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-sky-100 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4">
+      <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
+           
             <div className="flex items-center gap-3">
-              <div className="relative">
-               
-                <img 
-                  src="/ghsnobg.png" 
-                  alt="Gautam High School Logo" 
-                  className="w-12 h-12 object-contain hover:scale-105 transition-transform duration-200"
-                />
-              </div>
+              <img
+                src="/ghsnobg.png"
+                alt="Gautam High School Logo"
+                className="w-12 h-12 object-contain"
+              />
               <div>
-                <h1 className="text-xl font-bold text-gray-800 hover:text-sky-600 transition-colors">
-                  Gautam High School
-                </h1>
-                <p className="text-xs text-sky-600 font-medium">Excellence in Education</p>
+                <h1 className="text-2xl font-extrabold text-gray-900 leading-tight">Gautam High School</h1>
+                <p className="text-sm text-sky-700 font-medium">Excellence in Education</p>
               </div>
             </div>
 

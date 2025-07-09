@@ -14,4 +14,11 @@ else res.status(400).json({message:"Failed to create home content"})
     const data = await HomeContent.find()
     return res.send(data)
   })
+
+
+  homeContentRouter.put('/home-contents', async (req, res) => {
+    const home = await HomeContent.findOne()
+    await HomeContent.findByIdAndUpdate(home._id,req.body)
+    return res.send("Home content edited")
+  })
 export default homeContentRouter

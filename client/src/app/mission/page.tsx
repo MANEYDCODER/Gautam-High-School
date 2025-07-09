@@ -1,50 +1,65 @@
-
 'use client'
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Lightbulb, Globe, Award, ArrowLeft } from "lucide-react";
+import { Heart, Lightbulb, Globe, Award } from "lucide-react";
 
 import { NavigationMenuDemo } from "@/components/navbar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Mission = () => {
-  const [missionData,setMissionData] = useState()
-  const fetchMissionData = async ()=> {
-  const {data} = await axios.get(process.env.NEXT_PUBLIC_API_URL+ '/mission-contents')
-  setMissionData(data[0])
-  }
-  useEffect(()=>{
-    fetchMissionData()
 
-  },[])
+
+const Mission = () => {
+  const [missionData, setMissionData] = useState();
+
+  const fetchMissionData = async () => {
+    const { data } = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/mission-contents');
+    setMissionData(data[0]);
+  };
+
+  useEffect(() => {
+    fetchMissionData();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-900">Gautam High School</h1>
+    <div className="min-h-screen bg-white font-sans antialiased bg-gradient-to-br from-sky-50 to-blue-100">
+      {/* Navigation Bar */}
+      <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            {/* Logo */}
+           
+            <div className="flex items-center gap-3">
+              <img
+                src="/ghsnobg.png"
+                alt="Gautam High School Logo"
+                className="w-12 h-12 object-contain"
+              />
+              <div>
+                <h1 className="text-2xl font-extrabold text-gray-900 leading-tight">Gautam High School</h1>
+                <p className="text-sm text-sky-700 font-medium">Excellence in Education</p>
+              </div>
             </div>
-            <nav className="hidden md:block">
-              <NavigationMenuDemo /> 
-            </nav>
+
+            {/* Menu & Login Button */}
+            <div className="flex items-center gap-6">
+              <NavigationMenuDemo />
+              
+            </div>
           </div>
         </div>
-      </header>
+      </nav>
 
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          
-          
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
             {missionData?.mainMissionTitle}
           </h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in">
-           {missionData?.mainMissionDescription}
+            {missionData?.mainMissionDescription}
           </p>
         </div>
       </section>
@@ -60,26 +75,25 @@ const Mission = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-lg text-gray-700 leading-relaxed">
-               {missionData?.coreMissionDescription}
+                {missionData?.coreMissionDescription}
               </p>
             </CardContent>
           </Card>
-          
         </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register">
-              <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                Join Our Legacy
-              </Button>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                Back To Home
-              </Button>
-            </Link>
-          </div>
+          <Link href="/register">
+            <Button className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+              Join Our Legacy
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+              Back To Home
+            </Button>
+          </Link>
+        </div>
       </section>
-      
 
       {/* Core Values */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -88,61 +102,23 @@ const Mission = () => {
             {missionData?.coreValuesTitle}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center hover-scale animate-fade-in">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
-                  <Heart className="w-8 h-8 text-sky-600" />
-                </div>
-                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[0]?.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  {missionData?.missionPageCoreValues?.[0]?.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-scale animate-fade-in">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
-                  <Lightbulb className="w-8 h-8 text-sky-600" />
-                </div>
-                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[1]?.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  {missionData?.missionPageCoreValues?.[1]?.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-scale animate-fade-in">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
-                  <Globe className="w-8 h-8 text-sky-600" />
-                </div>
-                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[2]?.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  {missionData?.missionPageCoreValues?.[2]?.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-scale animate-fade-in">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
-                  <Award className="w-8 h-8 text-sky-600" />
-                </div>
-                <CardTitle className="text-sky-800">{missionData?.missionPageCoreValues?.[3]?.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  {missionData?.missionPageCoreValues?.[3]?.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {[Heart, Lightbulb, Globe, Award].map((Icon, idx) => (
+              <Card key={idx} className="text-center hover-scale animate-fade-in">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mb-4">
+                    <Icon className="w-8 h-8 text-sky-600" />
+                  </div>
+                  <CardTitle className="text-sky-800">
+                    {missionData?.missionPageCoreValues?.[idx]?.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    {missionData?.missionPageCoreValues?.[idx]?.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -169,14 +145,13 @@ const Mission = () => {
       </section>
 
       {/* Footer */}
-
       <footer className="bg-gray-900 text-white py-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center shadow-md">
-                  <img src="ghsnobg.png" alt="Gautam High School Logo" className="w-9 h-9 object-contain" />
+                  <img src="/ghsnobg.png" alt="Logo" className="w-9 h-9 object-contain" />
                 </div>
                 <span className="text-2xl font-bold text-sky-50">Gautam High School</span>
               </div>
@@ -214,10 +189,7 @@ const Mission = () => {
               <p className="text-gray-400 text-base mb-6">
                 Subscribe to our newsletter for the latest updates, events, and announcements from our school community.
               </p>
-              <form className="flex">
-               
-                
-              </form>
+              <form className="flex">{/* Add input & button if needed */}</form>
             </div>
           </div>
 
@@ -227,7 +199,6 @@ const Mission = () => {
           </div>
         </div>
       </footer>
-  
     </div>
   );
 };

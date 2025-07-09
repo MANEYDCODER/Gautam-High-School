@@ -53,10 +53,10 @@ This project is divided into several phases to ensure a structured development p
 
 **✅ Features to Build:**
 * ✔️ Home Page: Introduction to the school
-* [ ] About Us: History, mission, vision
+* ✔️ About Us: History, mission, vision
 * [ ] Photo Album: Gallery of school events
 * [ ] Timeline: Milestones and achievements
-* [ ] Contact Info / Map Integration
+* ✔️ Contact Info / Map Integration
 * [ ] News / Announcements
 
 **📌 Bonus Ideas:**
