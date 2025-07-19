@@ -2,17 +2,16 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Lightbulb, Globe, Award } from "lucide-react";
+import { Heart, Lightbulb, Globe, Award, Menu, X } from "lucide-react";
 
 import { NavigationMenuDemo } from "@/components/navbar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
-
 const Mission = () => {
   const [missionData, setMissionData] = useState();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const fetchMissionData = async () => {
     const { data } = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/mission-contents');
@@ -24,13 +23,12 @@ const Mission = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans antialiased bg-gradient-to-br from-sky-50 to-blue-100">
+    <div className="min-h-screen bg-white font-sans antialiased">
       {/* Navigation Bar */}
       <nav className="bg-white shadow-sm border-b border-sky-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-           
             <div className="flex items-center gap-3">
               <img
                 src="/ghsnobg.png"
@@ -43,12 +41,41 @@ const Mission = () => {
               </div>
             </div>
 
-            {/* Menu & Login Button */}
-            <div className="flex items-center gap-6">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
               <NavigationMenuDemo />
-              
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-2 text-gray-600 hover:text-sky-600 transition-colors duration-200"
+                aria-label="Toggle mobile menu"
+              >
+                {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="lg:hidden border-t border-sky-100 py-4">
+              <div className="flex flex-col space-y-4">
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">Home</a>
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">About</a>
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">Academics</a>
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">Admissions</a>
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">Faculty</a>
+                <a href="#" className="text-gray-700 hover:text-sky-600 font-medium">Contact</a>
+                <Link href="/register" className="pt-2">
+                  <Button className="bg-sky-600 hover:bg-sky-700 text-white w-full py-2.5 rounded-full shadow-md">
+                    Apply Now
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -166,20 +193,20 @@ const Mission = () => {
             <div>
               <h3 className="font-semibold text-lg mb-5 text-sky-200">Quick Links</h3>
               <ul className="space-y-3 text-gray-400 text-base">
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">About Us</a></li>
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Academics</a></li>
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Admissions</a></li>
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Faculty</a></li>
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">News & Events</a></li>
-                <li><a href="#" className="hover:text-sky-300 transition-colors duration-200">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-sky-300">About Us</a></li>
+                <li><a href="#" className="hover:text-sky-300">Academics</a></li>
+                <li><a href="#" className="hover:text-sky-300">Admissions</a></li>
+                <li><a href="#" className="hover:text-sky-300">Faculty</a></li>
+                <li><a href="#" className="hover:text-sky-300">News & Events</a></li>
+                <li><a href="#" className="hover:text-sky-300">Privacy Policy</a></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold text-lg mb-5 text-sky-200">Contact Us</h3>
               <div className="space-y-3 text-gray-400 text-base">
-                <p>Phone: <a href="tel:01-5354504" className="hover:text-sky-300 transition-colors duration-200">01-5354504</a></p>
-                <p>Email: <a href="mailto:school.gautam@gmail.com" className="hover:text-sky-300 transition-colors duration-200">school.gautam@gmail.com</a></p>
+                <p>Phone: <a href="tel:01-5354504" className="hover:text-sky-300">01-5354504</a></p>
+                <p>Email: <a href="mailto:school.gautam@gmail.com" className="hover:text-sky-300">school.gautam@gmail.com</a></p>
                 <p>Address: Ganabaha Marg, Kathmandu 44600</p>
               </div>
             </div>

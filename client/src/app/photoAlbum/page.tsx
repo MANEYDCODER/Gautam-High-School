@@ -102,11 +102,7 @@ const PhotoAlbum = () => {
 
             {/* CTA Button & Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              <Link href="/register" className="hidden sm:block">
-                <Button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200">
-                  Login
-                </Button>
-              </Link>
+              
 
               {/* Mobile menu button */}
               <button
