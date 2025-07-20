@@ -6,64 +6,106 @@ import { useState } from "react";
 import { NavigationMenuDemo } from "@/components/navbar";
 import Link from "next/link";
 import PhotoGallery from "@/components/ui/PhotoGallery";
+import Image from "next/image"; // Import Next.js Image component
 
 const PhotoAlbum = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
 
+  // For demonstration, let's assume the user is logged in.
+  // **REPLACE THIS WITH YOUR ACTUAL AUTHENTICATION LOGIC**
+  const isLoggedIn = true; // Set to true for demonstration, false to see "Login to like" message
+
   const photoCategories = [
     {
-      title: "School Events",
-      description: "Annual functions, cultural programs, and special celebrations",
-      icon: Trophy,
+      title: "World Environment Day 2025",
+      description: "Celebrating nature and promoting environmental awareness. (Thursday, June 5)",
+      icon: Trophy, // Consider changing to a plant/earth icon if available (e.g., Leaf, Earth)
       photos: [
-        { id: 1, src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800", alt: "Annual Day Celebration", likes: 24 },
-        { id: 2, src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800", alt: "Cultural Program", likes: 18 },
-        { id: 3, src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800", alt: "Prize Distribution", likes: 32 },
-        { id: 4, src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800", alt: "Sports Day", likes: 15 },
-        { id: 5, src: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800", alt: "Science Fair", likes: 21 },
-        { id: 6, src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800", alt: "Drama Performance", likes: 19 }
-      ]
+        // All likes are now initialized to 0
+        { id: 1, src: "/env.jpg", alt: "Students planting trees", likes: 0 },
+        { id: 2, src: "/images/world_environment_day/wed_2.jpg", alt: "School garden project", likes: 0 },
+        { id: 3, src: "/images/world_environment_day/wed_3.jpg", alt: "Recycling campaign", likes: 0 },
+        { id: 4, src: "/images/world_environment_day/wed_4.jpg", alt: "Environmental art display", likes: 0 },
+        { id: 5, src: "/images/world_environment_day/wed_5.jpg", alt: "Clean-up drive", likes: 0 },
+        { id: 6, src: "/images/world_environment_day/wed_6.jpg", alt: "Eco-friendly workshop", likes: 0 },
+        { id: 7, src: "/images/world_environment_day/wed_7.jpg", alt: "Nature walk and study", likes: 0 },
+        { id: 8, src: "/images/world_environment_day/wed_8.jpg", alt: "Composting initiative", likes: 0 },
+        { id: 9, src: "/images/world_environment_day/wed_9.jpg", alt: "Renewable energy awareness", likes: 0 },
+        { id: 10, src: "/images/world_environment_day/wed_10.jpg", alt: "Water conservation project", likes: 0 },
+        { id: 11, src: "/images/world_environment_day/wed_11.jpg", alt: "Wildlife protection seminar", likes: 0 },
+        { id: 12, src: "/images/world_environment_day/wed_12.jpg", alt: "Climate change discussion", likes: 0 },
+        { id: 13, src: "/images/world_environment_day/wed_13.jpg", alt: "Sustainable living tips", likes: 0 },
+        { id: 14, src: "/images/world_environment_day/wed_14.jpg", alt: "DIY upcycling creations", likes: 0 },
+        { id: 15, src: "/images/world_environment_day/wed_15.jpg", alt: "Pledge for a greener future", likes: 0 },
+      ],
     },
     {
-      title: "Academic Life",
-      description: "Classroom activities, laboratories, and learning experiences",
-      icon: BookOpen,
+      title: "Visit to Basantapur (Grades 5, 6, 7)",
+      description: "An educational and fun trip to the historic Basantapur Durbar Square. (Friday, Feb 28)",
+      icon: BookOpen, // Consider changing to a landmark/travel icon (e.g., MapPin, Landmark)
       photos: [
-        { id: 7, src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800", alt: "Science Laboratory", likes: 28 },
-        { id: 8, src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800", alt: "Computer Class", likes: 22 },
-        { id: 9, src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800", alt: "Library Study", likes: 16 },
-        { id: 10, src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800", alt: "Group Discussion", likes: 25 },
-        { id: 11, src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800", alt: "Mathematics Class", likes: 14 },
-        { id: 12, src: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800", alt: "Art Workshop", likes: 20 }
-      ]
+        { id: 1, src: "/images/basantapur_visit/basantapur_1.jpg", alt: "Students at Basantapur Durbar Square", likes: 0 },
+        { id: 2, src: "/images/basantapur_visit/basantapur_2.jpg", alt: "Exploring ancient architecture", likes: 0 },
+        { id: 3, src: "/images/basantapur_visit/basantapur_3.jpg", alt: "Learning about history", likes: 0 },
+        { id: 4, src: "/images/basantapur_visit/basantapur_4.jpg", alt: "Group photo in front of temple", likes: 0 },
+        { id: 5, src: "/images/basantapur_visit/basantapur_5.jpg", alt: "Students sketching monuments", likes: 0 },
+        { id: 6, src: "/images/basantapur_visit/basantapur_6.jpg", alt: "Market visit experience", likes: 0 },
+        { id: 7, src: "/images/basantapur_visit/basantapur_7.jpg", alt: "Cultural performance observation", likes: 0 },
+        { id: 8, src: "/images/basantapur_visit/basantapur_8.jpg", alt: "Interacting with local artisans", likes: 0 },
+        { id: 9, src: "/images/basantapur_visit/basantapur_9.jpg", alt: "Lunch break in Basantapur", likes: 0 },
+        { id: 10, src: "/images/basantapur_visit/basantapur_10.jpg", alt: "Teacher explaining historical facts", likes: 0 },
+        { id: 11, src: "/images/basantapur_visit/basantapur_11.jpg", alt: "View from a rooftop cafe", likes: 0 },
+        { id: 12, src: "/images/basantapur_visit/basantapur_12.jpg", alt: "Souvenir shopping", likes: 0 },
+        { id: 13, src: "/images/basantapur_visit/basantapur_13.jpg", alt: "Street photography session", likes: 0 },
+        { id: 14, src: "/images/basantapur_visit/basantapur_14.jpg", alt: "Reflecting on the historical significance", likes: 0 },
+        { id: 15, src: "/images/basantapur_visit/basantapur_15.jpg", alt: "Happy faces after the trip", likes: 0 },
+      ],
     },
     {
-      title: "Student Life",
-      description: "Friendships, teamwork, and memorable moments",
-      icon: Users,
+      title: "Dashain Mela 2024",
+      description: "Festive celebrations and cultural activities during Dashain. (Oct 2-4)",
+      icon: Users, // Consider changing to a festive/celebration icon (e.g., PartyPopper, Gift)
       photos: [
-        { id: 13, src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800", alt: "Student Friends", likes: 45 },
-        { id: 14, src: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800", alt: "Lunch Break", likes: 38 },
-        { id: 15, src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800", alt: "Outdoor Activities", likes: 33 },
-        { id: 16, src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800", alt: "Study Group", likes: 27 },
-        { id: 17, src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800", alt: "Team Building", likes: 30 },
-        { id: 18, src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800", alt: "School Trip", likes: 41 }
-      ]
+        { id: 1, src: "/images/dashain_mela/dashain_1.jpg", alt: "Dashain swing fun", likes: 0 },
+        { id: 2, src: "/images/dashain_mela/dashain_2.jpg", alt: "Cultural dance performance", likes: 0 },
+        { id: 3, src: "/images/dashain_mela/dashain_3.jpg", alt: "Tika blessing ceremony", likes: 0 },
+        { id: 4, src: "/images/dashain_mela/dashain_4.jpg", alt: "Students in traditional attire", likes: 0 },
+        { id: 5, src: "/images/dashain_mela/dashain_5.jpg", alt: "Food stalls and delicacies", likes: 0 },
+        { id: 6, src: "/images/dashain_mela/dashain_6.jpg", alt: "Carnival games at the mela", likes: 0 },
+        { id: 7, src: "/images/dashain_mela/dashain_7.jpg", alt: "Live music performance", likes: 0 },
+        { id: 8, src: "/images/dashain_mela/dashain_8.jpg", alt: "Children enjoying the rides", likes: 0 },
+        { id: 9, src: "/images/dashain_mela/dashain_9.jpg", alt: "Family and friends gathering", likes: 0 },
+        { id: 10, src: "/images/dashain_mela/dashain_10.jpg", alt: "Decorations and festive atmosphere", likes: 0 },
+        { id: 11, src: "/images/dashain_mela/dashain_11.jpg", alt: "Art and craft booths", likes: 0 },
+        { id: 12, src: "/images/dashain_mela/dashain_12.jpg", alt: "Prize distribution for competitions", likes: 0 },
+        { id: 13, src: "/images/dashain_mela/dashain_13.jpg", alt: "Interactive cultural workshops", likes: 0 },
+        { id: 14, src: "/images/dashain_mela/dashain_14.jpg", alt: "Spectacular evening lights", likes: 0 },
+        { id: 15, src: "/images/dashain_mela/dashain_15.jpg", alt: "Joyful celebration of Dashain", likes: 0 },
+      ],
     },
     {
-      title: "Graduation",
-      description: "Memorable graduation ceremonies and achievements",
-      icon: GraduationCap,
+      title: "Saraswati Puja 2025",
+      description: "Worshipping the goddess of knowledge, music, art, wisdom, and nature. (Monday, Feb 3)",
+      icon: GraduationCap, // Consider changing to a more spiritual/artistic icon (e.g., Book, Music)
       photos: [
-        { id: 19, src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800", alt: "Graduation Ceremony", likes: 67 },
-        { id: 20, src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800", alt: "Certificate Distribution", likes: 52 },
-        { id: 21, src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800", alt: "Graduation Group Photo", likes: 89 },
-        { id: 22, src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800", alt: "Academic Excellence Awards", likes: 43 },
-        { id: 23, src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800", alt: "Valedictorian Speech", likes: 35 },
-        { id: 24, src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800", alt: "Family Celebration", likes: 58 }
-      ]
-    }
+        { id: 1, src: "/images/saraswati_puja/saraswati_1.jpg", alt: "Saraswati Puja ceremony at school", likes: 0 },
+        { id: 2, src: "/images/saraswati_puja/saraswati_2.jpg", alt: "Students offering prayers", likes: 0 },
+        { id: 3, src: "/images/saraswati_puja/saraswati_3.jpg", alt: "Decorated idol of Goddess Saraswati", likes: 0 },
+        { id: 4, src: "/images/saraswati_puja/saraswati_4.jpg", alt: "Musical instruments on display for blessing", likes: 0 },
+        { id: 5, src: "/images/saraswati_puja/saraswati_5.jpg", alt: "Kids starting their first alphabet", likes: 0 },
+        { id: 6, src: "/images/saraswati_puja/saraswati_6.jpg", alt: "Floral decorations for the puja", likes: 0 },
+        { id: 7, src: "/images/saraswati_puja/saraswati_7.jpg", alt: "Teachers and students participating in rituals", likes: 0 },
+        { id: 8, src: "/images/saraswati_puja/saraswati_8.jpg", alt: "Art supplies blessed for creativity", likes: 0 },
+        { id: 9, src: "/images/saraswati_puja/saraswati_9.jpg", alt: "Devotional songs performance", likes: 0 },
+        { id: 10, src: "/images/saraswati_puja/saraswati_10.jpg", alt: "Incense and offerings", likes: 0 },
+        { id: 11, src: "/images/saraswati_puja/saraswati_11.jpg", alt: "Peaceful atmosphere during the puja", likes: 0 },
+        { id: 12, src: "/images/saraswati_puja/saraswati_12.jpg", alt: "Students seeking blessings for studies", likes: 0 },
+        { id: 13, src: "/images/saraswati_puja/saraswati_13.jpg", alt: "Traditional lamps lit up", likes: 0 },
+        { id: 14, src: "/images/saraswati_puja/saraswati_14.jpg", alt: "Community gathering for the event", likes: 0 },
+        { id: 15, src: "/images/saraswati_puja/saraswati_15.jpg", alt: "Vibrant colors of the celebration", likes: 0 },
+      ],
+    },
   ];
 
   // If a category is selected, show the gallery
@@ -72,6 +114,7 @@ const PhotoAlbum = () => {
       <PhotoGallery
         category={selectedCategory}
         onBack={() => setSelectedCategory(null)}
+        isLoggedIn={isLoggedIn} // Pass login status to PhotoGallery
       />
     );
   }
@@ -83,7 +126,6 @@ const PhotoAlbum = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-           
             <div className="flex items-center gap-3">
               <img
                 src="/ghsnobg.png"
@@ -102,8 +144,6 @@ const PhotoAlbum = () => {
 
             {/* CTA Button & Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              
-
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -181,9 +221,12 @@ const PhotoAlbum = () => {
                     <div className="grid grid-cols-3 gap-1 h-48">
                       {category.photos.slice(0, 3).map((photo, index) => (
                         <div key={photo.id} className="relative overflow-hidden">
-                          <img 
-                            src={photo.src} 
+                          {/* Use Next.js Image component for optimization */}
+                          <Image // Changed to Next.js Image component
+                            src={photo.src}
                             alt={photo.alt}
+                            width={600} // Added width
+                            height={400} // Added height
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                           {index === 2 && category.photos.length > 3 && (
@@ -323,7 +366,6 @@ const PhotoAlbum = () => {
                 Subscribe to our newsletter for the latest updates, events, and announcements from our school community.
               </p>
               <form className="flex">
-               
                 
               </form>
             </div>
