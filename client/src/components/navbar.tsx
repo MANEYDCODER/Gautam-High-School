@@ -98,7 +98,7 @@ export function NavigationMenuDemo() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/timeline">Timeline</Link>
+            <Link href="/admission">Admission Form</Link>
           </NavigationMenuLink>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/news">News Announcements</Link>
