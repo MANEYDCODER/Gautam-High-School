@@ -24,8 +24,8 @@ const PhotoAlbum = () => {
       photos: [
         // All likes are now initialized to 0
         { id: 1, src: "/env.jpg", alt: "Students planting trees", likes: 0 },
-        { id: 2, src: "/images/world_environment_day/wed_2.jpg", alt: "School garden project", likes: 0 },
-        { id: 3, src: "/images/world_environment_day/wed_3.jpg", alt: "Recycling campaign", likes: 0 },
+        { id: 2, src: "/WE1.jpg", alt: "School garden project", likes: 0 },
+        { id: 3, src: "/EV@.jpg", alt: "Recycling campaign", likes: 0 },
         { id: 4, src: "/images/world_environment_day/wed_4.jpg", alt: "Environmental art display", likes: 0 },
         { id: 5, src: "/images/world_environment_day/wed_5.jpg", alt: "Clean-up drive", likes: 0 },
         { id: 6, src: "/images/world_environment_day/wed_6.jpg", alt: "Eco-friendly workshop", likes: 0 },
@@ -45,9 +45,9 @@ const PhotoAlbum = () => {
       description: "An educational and fun trip to the historic Basantapur Durbar Square. (Friday, Feb 28)",
       icon: BookOpen, // Consider changing to a landmark/travel icon (e.g., MapPin, Landmark)
       photos: [
-        { id: 1, src: "/images/basantapur_visit/basantapur_1.jpg", alt: "Students at Basantapur Durbar Square", likes: 0 },
-        { id: 2, src: "/images/basantapur_visit/basantapur_2.jpg", alt: "Exploring ancient architecture", likes: 0 },
-        { id: 3, src: "/images/basantapur_visit/basantapur_3.jpg", alt: "Learning about history", likes: 0 },
+        { id: 1, src: "/22.jpg", alt: "Students at Basantapur Durbar Square", likes: 0 },
+        { id: 2, src: "/21.jpg", alt: "Exploring ancient architecture", likes: 0 },
+        { id: 3, src: "/111.jpg", alt: "Learning about history", likes: 0 },
         { id: 4, src: "/images/basantapur_visit/basantapur_4.jpg", alt: "Group photo in front of temple", likes: 0 },
         { id: 5, src: "/images/basantapur_visit/basantapur_5.jpg", alt: "Students sketching monuments", likes: 0 },
         { id: 6, src: "/images/basantapur_visit/basantapur_6.jpg", alt: "Market visit experience", likes: 0 },
@@ -67,9 +67,9 @@ const PhotoAlbum = () => {
       description: "Festive celebrations and cultural activities during Dashain. (Oct 2-4)",
       icon: Users, // Consider changing to a festive/celebration icon (e.g., PartyPopper, Gift)
       photos: [
-        { id: 1, src: "/images/dashain_mela/dashain_1.jpg", alt: "Dashain swing fun", likes: 0 },
-        { id: 2, src: "/images/dashain_mela/dashain_2.jpg", alt: "Cultural dance performance", likes: 0 },
-        { id: 3, src: "/images/dashain_mela/dashain_3.jpg", alt: "Tika blessing ceremony", likes: 0 },
+        { id: 1, src: "/d.jpg", alt: "Dashain swing fun", likes: 0 },
+        { id: 2, src: "/dd.jpg", alt: "Cultural dance performance", likes: 0 },
+        { id: 3, src: "/12.jpg", alt: "Tika blessing ceremony", likes: 0 },
         { id: 4, src: "/images/dashain_mela/dashain_4.jpg", alt: "Students in traditional attire", likes: 0 },
         { id: 5, src: "/images/dashain_mela/dashain_5.jpg", alt: "Food stalls and delicacies", likes: 0 },
         { id: 6, src: "/images/dashain_mela/dashain_6.jpg", alt: "Carnival games at the mela", likes: 0 },
@@ -89,9 +89,9 @@ const PhotoAlbum = () => {
       description: "Worshipping the goddess of knowledge, music, art, wisdom, and nature. (Monday, Feb 3)",
       icon: GraduationCap, // Consider changing to a more spiritual/artistic icon (e.g., Book, Music)
       photos: [
-        { id: 1, src: "/images/saraswati_puja/saraswati_1.jpg", alt: "Saraswati Puja ceremony at school", likes: 0 },
-        { id: 2, src: "/images/saraswati_puja/saraswati_2.jpg", alt: "Students offering prayers", likes: 0 },
-        { id: 3, src: "/images/saraswati_puja/saraswati_3.jpg", alt: "Decorated idol of Goddess Saraswati", likes: 0 },
+        { id: 1, src: "/s.jpg", alt: "Saraswati Puja ceremony at school", likes: 0 },
+        { id: 2, src: "/121.jpg", alt: "Students offering prayers", likes: 0 },
+        { id: 3, src: "/1212.jpg", alt: "Decorated idol of Goddess Saraswati", likes: 0 },
         { id: 4, src: "/images/saraswati_puja/saraswati_4.jpg", alt: "Musical instruments on display for blessing", likes: 0 },
         { id: 5, src: "/images/saraswati_puja/saraswati_5.jpg", alt: "Kids starting their first alphabet", likes: 0 },
         { id: 6, src: "/images/saraswati_puja/saraswati_6.jpg", alt: "Floral decorations for the puja", likes: 0 },
